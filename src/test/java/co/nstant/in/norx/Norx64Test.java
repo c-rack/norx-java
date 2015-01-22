@@ -1,0 +1,71 @@
+package co.nstant.in.norx;
+
+import static org.junit.Assert.assertArrayEquals;
+
+public class Norx64Test extends AbstractNorxTest<Long> {
+
+    private Long[][] vectors = {
+        {
+            0x0000000000000000L, 0x0000000000000000L, 0x0000000000000000L, 0x0000000000000000L,
+            0x0000000000000000L, 0x0000000000000000L, 0x0000000000000000L, 0x0000000000000000L },
+        {
+            0x0000000000000001L, 0x0000000000000000L, 0x0000000000000000L, 0x0000000000000000L,
+            0x0000002000000001L, 0x4200004002020000L, 0x2100000001010000L, 0x2000000001010000L },
+        {
+            0x0000000000000000L, 0x0000000000000001L, 0x0000000000000000L, 0x0000000000000000L,
+            0x0000202000000001L, 0x4200404002020040L, 0x2100000001010020L, 0x2000000001010020L },
+        {
+            0x0000000000000000L, 0x0000000000000000L, 0x0000000000000001L, 0x0000000000000000L,
+            0x0000200000000000L, 0x0000400000000042L, 0x0000000000000021L, 0x0000000000000020L },
+        {
+            0x0000000000000000L, 0x0000000000000000L, 0x0000000000000000L, 0x0000000000000001L,
+            0x0000002000000000L, 0x4200004000020000L, 0x2100000000010000L, 0x2000000000010000L },
+        {
+            0x8000000000000000L, 0x0000000000000000L, 0x0000000000000000L, 0x0000000000000000L,
+            0x8000001000000000L, 0x2100002001010000L, 0x1080000000808000L, 0x1000000000808000L },
+        {
+            0x0000000000000000L, 0x8000000000000000L, 0x0000000000000000L, 0x0000000000000000L,
+            0x8000101000000000L, 0x2100202001010020L, 0x1080000000808010L, 0x1000000000808010L },
+        {
+            0x0000000000000000L, 0x0000000000000000L, 0x8000000000000000L, 0x0000000000000000L,
+            0x0000100000000000L, 0x0000200000000021L, 0x8000000000000010L, 0x0000000000000010L },
+        {
+            0x0000000000000000L, 0x0000000000000000L, 0x0000000000000000L, 0x8000000000000000L,
+            0x0000001000000000L, 0x2100002000010000L, 0x1080000000008000L, 0x1000000000008000L },
+        {
+            0xFFFFFFFFFFFFFFFFL, 0xFFFFFFFFFFFFFFFFL, 0xFFFFFFFFFFFFFFFFL, 0xFFFFFFFFFFFFFFFFL,
+            0xFFFFFF5FFFFFFFFEL, 0x35FFFF3FF9F9FFFCL, 0x1AFFFFFFFCFCFFFEL, 0x5FFFFFFFFEFEFFFFL },
+        {
+            0x0123456789ABCDEFL, 0xFEDCBA9876543210L, 0x0123456789ABCDEFL, 0xFEDCBA9876543210L,
+            0x06E0F91F53B5CA4BL, 0x1D4225AFF0B8887DL, 0x26541088639A5752L, 0x5A343C6186E9E1DAL },
+    };
+
+    @Override
+    protected Long[] getTraceG(int index) {
+        return vectors[index];
+    }
+
+    public void testG(int index) {
+        System.out.println("G64 Trace " + index);
+        Long[] trace = getTraceG(index);
+        long a = trace[0];
+        long b = trace[1];
+        long c = trace[2];
+        long d = trace[3];
+        long ga = trace[4];
+        long gb = trace[5];
+        long gc = trace[6];
+        long gd = trace[7];
+
+        long[] input = { a, b, c, d };
+        long[] expected = { ga, gb, gc, gd };
+
+        Norx64.g(input);
+
+        System.out.println(String.format("%016X %016X %016X %016X", a, b, c, d));
+        System.out.println(String.format("%016X %016X %016X %016X", ga, gb, gc, gd));
+        System.out.println(String.format("%016X %016X %016X %016X", input[0], input[1], input[2], input[3]));
+        assertArrayEquals(expected, input);
+        System.out.println("--> OK");
+    }
+}
