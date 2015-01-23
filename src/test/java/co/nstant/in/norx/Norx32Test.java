@@ -36,7 +36,7 @@ public class Norx32Test extends AbstractNorxTest<Integer> {
             0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
             0xFFFF5FFE, 0x35F939FC, 0x1AFCFCFE, 0x5FFEFEFF },
         {
-            0x01234567, 0x89ABCDEF, 0xFEDCBA98, 0x7654321F,
+            0x01234567, 0x89ABCDEF, 0xFEDCBA98, 0x76543210,
             0xB7BF8099, 0x65A6E720, 0x1E22F5CB, 0x1AA9E143 },
     };
 
