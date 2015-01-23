@@ -29,22 +29,16 @@ public class Norx32 {
     }
 
     public static void g(int[] array) {
-        g1(array, R0);
-        g2(array, R1);
-        g1(array, R2);
-        g2(array, R3);
+        gx(array, R0, 0, 1, 3);
+        gx(array, R1, 2, 3, 1);
+        gx(array, R2, 0, 1, 3);
+        gx(array, R3, 2, 3, 1);
     }
 
-    private static void g1(int[] v, int r) {
-        v[0] = (v[0] ^ v[1]) ^ ((v[0] & v[1]) << 1);
-        v[3] ^= v[0];
-        v[3] = (v[3] >>> r) | (v[3] << (W - r));
-    }
-
-    private static void g2(int[] v, int r) {
-        v[2] = (v[2] ^ v[3]) ^ ((v[2] & v[3]) << 1);
-        v[1] ^= v[2];
-        v[1] = (v[1] >>> r) | (v[1] << (W - r));
+    private static void gx(int[] v, int r, int x, int y, int z) {
+        v[x] = (v[x] ^ v[y]) ^ ((v[x] & v[y]) << 1);
+        v[z] ^= v[x];
+        v[z] = (v[z] >>> r) | (v[z] << (W - r));
     }
 
 }
