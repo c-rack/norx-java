@@ -19,13 +19,13 @@ public class Norx32 {
         g(state, 3, 4, 9, 14);
     }
 
-    private static void g(int[] state, int a, int b, int c, int d) {
-        int[] array = new int[] { state[a], state[b], state[c], state[d] };
+    private static void g(int[] s, int a, int b, int c, int d) {
+        int[] array = new int[] { s[a], s[b], s[c], s[d] };
         g(array);
-        state[a] = array[0];
-        state[b] = array[1];
-        state[c] = array[2];
-        state[d] = array[3];
+        s[a] = array[0];
+        s[b] = array[1];
+        s[c] = array[2];
+        s[d] = array[3];
     }
 
     public static void g(int[] array) {
