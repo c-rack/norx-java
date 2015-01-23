@@ -2,7 +2,7 @@ package co.nstant.in.norx;
 
 public class Norx64 {
 
-    private final static int W = 32;
+    private final static int W = 64;
     private final static int R0 = 8;
     private final static int R1 = 19;
     private final static int R2 = 40;
