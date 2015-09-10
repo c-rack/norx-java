@@ -1,5 +1,5 @@
 # norx-java
 
-[![Build Status](https://img.shields.io/travis/c-rack/norx-java.svg?branch=master&style=flat)](https://travis-ci.org/c-rack/norx-java)
+Java implementation of [NORX](https://norx.io/), a parallel and scalable authenticated encryption algorithm.
 
-Java implementation of NORX
+[![Build Status](https://travis-ci.org/c-rack/norx-java.svg?branch=master)](https://travis-ci.org/c-rack/norx-java)
